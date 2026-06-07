@@ -94,12 +94,12 @@ the same aspect corrected and de‑rotated space that the app uses, so each adju
   don't forget to save the original raw coordinates for the final blend!
   additionally, our references: (forehead `10`, chin `152`, nose `1`) are read but we don't move them since they fix scale and orientation for us.
 2. per-metric adjustments with each pushing one metric toward its band center (as previously explained)
-  - for eye aspect, set the vertical eyelid gap = `0.26 * eyeWidth` for each eye (indices 159/145, 386/374).
-  - for jaw width, scale the jaw points (172/397, 150/379, 171/396) horizontally about the face axis so `jawWidth/faceHeight` goes towards `0.68`.
-  - for cheekbone width, scale cheek points (234, 454) so `cheekWidth/jawWidth` goes towards `1.14`.
-  - for midface ratio, move the upper‑lip point (0) vertically so `|lip.y - eyeLine| / faceHeight` goes towards `0.305`.
-  - for symmetry, each of the 19 symmetric landmark pairs must be equalized such that each point's distance from the vertical/horizontal center to asymmetry to 0 to symmetry to 100.
-  - for canthal tilt, rotate each eye‑corner line (33 to 133, 362 to 263) so its angle reaches the value that yields tilt roughly 4.25.
+    - for eye aspect, set the vertical eyelid gap = `0.26 * eyeWidth` for each eye (indices 159/145, 386/374).
+    - for jaw width, scale the jaw points (172/397, 150/379, 171/396) horizontally about the face axis so `jawWidth/faceHeight` goes towards `0.68`.
+    - for cheekbone width, scale cheek points (234, 454) so `cheekWidth/jawWidth` goes towards `1.14`.
+    - for midface ratio, move the upper‑lip point (0) vertically so `|lip.y - eyeLine| / faceHeight` goes towards `0.305`.
+    - for symmetry, each of the 19 symmetric landmark pairs must be equalized such that each point's distance from the vertical/horizontal center to asymmetry to 0 to symmetry to 100.
+    - for canthal tilt, rotate each eye‑corner line (33 to 133, 362 to 263) so its angle reaches the value that yields tilt roughly 4.25.
 3. invert and blend by projecting each adjusted point back to raw normalized coordinates
   equationally, this looks like adding c, dividing x by i, and then linearly interpolating between the real and ideal positions by `strength`
 
