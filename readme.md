@@ -17,7 +17,7 @@ however, with the newest update:
 
 so if you boost the readable number but leave landmarks untouched, there is now a contradiction
 
-we just need to attack the single source of truth, ++the landmarks themselves++. :)
+we just need to attack the single source of truth, <ins>the landmarks themselves</ins>. :)
 
 ## 2. architecture
 
