@@ -127,7 +127,7 @@ mapping the call arguments `(landmarks, frameNonce, videoWidth/videoHeight, qual
 | 9        | `uint8`                       | landmark count = `48`                                |
 | 10       | `uint8`                       | `qualityMultiplier * 255`                            |
 | 11       | `uint8`                       | `faceStatus` enum (`{lost:0, warning:1, perfect:2}`) |
-| 12 … 395 | `48 × (float32 x, float32 y)` | ++48 landmark coordinates++                          |
+| 12 … 395 | `48 × (float32 x, float32 y)` | <ins>48 landmark coordinates</ins>                          |
 
 
 there is no score field.. and the "authoritative" frame doesn't send a number at all, it sends your raw face geometry (yikes), tagged with the nonce. however, that can only mean that the server scores the geometry itself amd the readable `score_update` is the client's self‑report, but the geometry stream is ground truth.
@@ -181,7 +181,7 @@ i also recovered the 19 mirror pairs `L` used by the symmetry metric, and the `q
 gate (a function of pose/centering/stillness that scales the whole score and is encoded as the
 `faceStatus` enum + a 0–255 byte in the binary frame.)
 
-at this point, the system is ++fully transparent++!
+at this point, the system is <ins>fully transparent</ins>!
 
 ---
 
@@ -200,7 +200,7 @@ crucially, the nonce is not a signature of the landmark bytes, it's a token you 
 
 ## 7. interception
 
-two consumers read the landmarks, this being the scorer and the binary encoder. however, both read the ++same array,++ produced one line earlier:
+two consumers read the landmarks, this being the scorer and the binary encoder. however, both read the <ins>same array,</ins> produced one line earlier:
 
 ```js
 m = faceLandmarker.detectForVideo(video, performance.now());
